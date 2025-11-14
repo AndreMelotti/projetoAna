@@ -1,0 +1,76 @@
+/* =======================================
+   CONFIG BÁSICA DA PÁGINA
+======================================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Fundo de terra */
+body {
+    background-image: url("./img/fundo_terra.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Folhas centrais (no meio) */
+.folhas-centro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    z-index: 5;
+}
+
+/* Folhas soltas (folha1) */
+.folha {
+    position: absolute;
+    width: 200px;
+    z-index: 5;          /* na frente da joaninha (z=1) */
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Hover normal: some devagar e vai para trás da joaninha
+   Só funciona enquanto NÃO tiver a classe .folha-sumida */
+.folha:hover:not(.folha-sumida) {
+    opacity: 0;
+    z-index: 0;          /* joga atrás da joaninha */
+}
+
+/* Posições das folhas */
+.f1 { top: 5%;  left: 10%; }
+.f2 { top: 10%; left: 55%; }
+.f3 { top: 3%;  left: 70%; }
+.f4 { top: 20%; left: 80%; }
+.f5 { top: 45%; left: 20%; }
+.f6 { top: 60%; left: 72%; }
+.f7 { top: 70%; left: 5%;  }
+.f8 { top: 50%; left: 85%; }
+
+/* Joaninhas */
+.joaninha {
+    width: 50px;
+    position: absolute;
+    z-index: 1;          /* atrás da folha enquanto ela existe */
+}
+
+/* Posições das joaninhas (já estão boas) */
+.j1 { top: 11%; left: 14%; }
+.j3 { top: 9%;  left: 74%; }
+.j4 { top: 26%; left: 84%; }
+.j6 { top: 66%; left: 76%; }
+.j8 { top: 56%; left: 89%; }
+
+/* Quando a folha for "explodida" (clicou na joaninha) */
+.folha-sumida {
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;   /* nunca mais interfere */
+}
